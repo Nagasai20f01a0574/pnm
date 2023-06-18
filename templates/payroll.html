@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Payroll</h1>
+    <form method="POST" action="/payroll">
+        <label for="employee_id">Employee ID:</label>
+<input type="text" id="employee_id" name="employee_id" required>
+        <select name="employee_id">
+            {% for employee in employees %}
+            <option value="{{ employee[0] }}">{{ employee[1] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="hours_worked">Hours Worked:</label>
+        <input type="number" name="hours_worked">
+        <br><br>
+        <label for="hourly_rate">Hourly Rate:</label>
+        <input type="number" name="hourly_rate">
+        <br><br>
+        <label for="deductions">Deductions:</label>
+        <input type="number" name="deductions">
+        <br><br>
+        <input type="submit" value="Calculate Payroll">
+    </form>
+    <br><br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Deductions</th>
+            <th>Gross Salary</th>
+            <th>Net Salary</th>
+            <th>Pay Date</th>
+        </tr>
+        {% for employee in payroll %}
+        <tr>
+            <td>{{ employee[0] }}</td>
+            <td>{{ employee[1] }}</td>
+            <td>{{ employee[2] }}</td>
+            <td>{{ employee[3] }}</td>
+            <td>{{ employee[4] }}</td>
+            <td>{{ employee[5] }}</td>
+            <td>{{ employee[6] }}</td>
+            <td>{{ employee[7] }}</td>
+            <td>{{ employee[8] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
