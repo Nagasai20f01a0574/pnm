@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payroll</title>
+    <title>Payroll Calculation</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Payroll</h1>
-    <form method="POST" action="/payroll">
+    <h2>Payroll Calculation</h2>
+    <form action="/payroll" method="POST">
         <label for="employee_id">Employee ID:</label>
-<input type="text" id="employee_id" name="employee_id" required>
-        <select name="employee_id">
-            {% for employee in employees %}
-            <option value="{{ employee[0] }}">{{ employee[1] }}</option>
-            {% endfor %}
-        </select>
+        <input type="text" id="employee_id" name="employee_id" required>
         <br><br>
         <label for="hours_worked">Hours Worked:</label>
-        <input type="number" name="hours_worked">
-        <br><br>
-        <label for="hourly_rate">Hourly Rate:</label>
-        <input type="number" name="hourly_rate">
+        <input type="text" id="hours_worked" name="hours_worked" required>
         <br><br>
         <label for="deductions">Deductions:</label>
-        <input type="number" name="deductions">
+        <input type="text" id="deductions" name="deductions" required>
         <br><br>
         <input type="submit" value="Calculate Payroll">
     </form>
-    <br><br>
+    <br>
+    <h2>Payroll Data</h2>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Employee ID</th>
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
             <th>Deductions</th>
@@ -41,19 +32,32 @@
             <th>Net Salary</th>
             <th>Pay Date</th>
         </tr>
-        {% for employee in payroll %}
+        {% for data in payroll_data %}
         <tr>
-            <td>{{ employee[0] }}</td>
-            <td>{{ employee[1] }}</td>
-            <td>{{ employee[2] }}</td>
-            <td>{{ employee[3] }}</td>
-            <td>{{ employee[4] }}</td>
-            <td>{{ employee[5] }}</td>
-            <td>{{ employee[6] }}</td>
-            <td>{{ employee[7] }}</td>
-            <td>{{ employee[8] }}</td>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+            <td>{{ data[3] }}</td>
+            <td>{{ data[4] }}</td>
+            <td>{{ data[5] }}</td>
+            <td>{{ data[6] }}</td>
+            <td>{{ data[7] }}</td>
         </tr>
         {% endfor %}
     </table>
+    <div style="float:left;">
+        <a href="/">
+         <button>Home</button>
+        </a>   
+     </div>
+    <div style="float: none;">
+        <a href="/add_employee">
+         <button>Add Employees</button>
+        </a>   
+     </div>
+     <div style="float: right;">
+         <a href="/employees">
+          <button>Employees Details</button>
+         </a>   
+      </div>
 </body>
 </html>

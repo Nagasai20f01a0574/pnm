@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Employees</title>
+    <title>View Employees</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Employees</h1>
+    <h1>Employee List</h1>
     <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
+            <th>Position</th>
+            <th>Salary</th>
         </tr>
         {% for employee in employees %}
         <tr>
             <td>{{ employee[0] }}</td>
             <td>{{ employee[1] }}</td>
             <td>{{ employee[2] }}</td>
+            <td>{{ employee[3] }}</td>
         </tr>
         {% endfor %}
     </table>
+    <div style="float: left;">
+       <a href="/add_employee">
+        <button>Add Employees</button>
+       </a>   
+    </div>
+    <div style="float: right;">
+        <a href="/payroll">
+         <button>Calculate Payroll</button>
+        </a>   
+     </div>
 </body>
 </html>

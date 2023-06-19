@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body background="https://cdn.wallpapersafari.com/36/70/95iSO4.jpg",100%>
+    <h1>Add Employee</h1>
+    <form action="{{ url_for('add_employee') }}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" required>
+        <br><br>
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" name="salary" required>
+        <br><br>
+        <input type="submit" value="Add Employee">
+    </form>
+    </br>
+    </br>
+    <div >
+        <a href="/">
+            <button>Home</button>
+        </a>
+        </br>
+
+    </div>
+    
+</body>
+</html>

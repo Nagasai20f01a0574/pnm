@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payroll Management System</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style6.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Payroll Management System</h1>
-    <p><a href="/employees">View Employees</a></p>
-    <p><a href="/payroll">Calculate Payroll</a></p>
+    <h1>Management: Streamlining Payroll Processes</h1>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/add_employee">Add Employee</a>
+        <a href="/employees">View Employees</a>
+        <a href="/payroll">Calculate Payroll</a>
+    </div>
+    <div class="content">
+        <h2>Welcome to the Payroll Management System!</h2>
+        <p>This system allows you to add employees, view employee details, and calculate payroll.</p>
+    </div>
+        <br></br>
+    <div class="row">
+        <div class="column">
+            <a href="/add_employee" target="_blank">
+                <img src="https://cdn.onlinewebfonts.com/svg/img_305441.png" width="200px">
+            </a>
+            <h4>  Add Employees</h4>
+        </div>
+        <div class="column">
+            <a href="/employees" target="_blank">
+            <img src="https://cdn0.iconfinder.com/data/icons/company-corporate-hierarchy/244/employee-003-512.png" width="200px">
+            </a>
+            <h4>   View Employee Details</h4>
+        </div>
+        <div class="column">
+            <a href="/payroll" target="_blank">
+            <img src="https://cdn2.iconfinder.com/data/icons/webi-con-4-black-solid/128/Payroll_copy-512.png" width="200px">
+            </a>
+            <h4>Payroll Process</h4>
+        </div>
+    </div>
 </body>
 </html>
